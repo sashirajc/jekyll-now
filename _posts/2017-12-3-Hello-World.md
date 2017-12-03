@@ -10,3 +10,5 @@ I hated WordPress for the lack of control over how I run my Javascript. And I re
 GitHub pages is the answer to all the issues I had.
 
 Looking forward to a more fruitful blogging experience here. If you find anything useful on my blog, please leave a comment. Cheers!
+
+UPDATE: I found this really [awesome blog](http://longqian.me/2017/02/09/github-jekyll-tag/) to add tags to Jekyll. Thanks Long Qian 
