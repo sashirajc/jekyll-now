@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello World!
+tags: introduction
 ---
 
 I've finally made the switch from WordPress to GitHub pages!! Yay!
@@ -11,4 +12,4 @@ GitHub pages is the answer to all the issues I had.
 
 Looking forward to a more fruitful blogging experience here. If you find anything useful on my blog, please leave a comment. Cheers!
 
-UPDATE: I found this really [awesome blog](http://longqian.me/2017/02/09/github-jekyll-tag/) to add tags to Jekyll. Thanks Long Qian 
+UPDATE: I found this really [awesome blog](http://longqian.me/2017/02/09/github-jekyll-tag/) to add tags to Jekyll. Thanks Long Qian
