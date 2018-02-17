@@ -7,7 +7,7 @@ tags: programming
 I recently came across this problem while designing my backend NodeJS application using Loopback framework. One of the backend systems we are connecting to can only work with SOAP APIs and we were forced to use XML. It had a key-value pair inside one of the XML fields. But the Loopback application works only with JSON and I had no idea how the JSON request would have to be to get a key-value pair on XML. I tried a couple of XML to JSON converters as I had the expected XML request with me and needed help figuring out the JSON input. Most of the converters gave me JSON which didnt quite work. Ultimately this is what worked for me.
 
 XML key-value pairs conversion
-
+```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header/>
   <soapenv:Body>
@@ -21,10 +21,10 @@ XML key-value pairs conversion
     </ns2:registerCustomerRequest>
   </soapenv:Body>
 </soapenv:Envelope>
-
+```
 
 REST
-
+```
 {
   "soapenv:Envelope": {
     "-xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/",
@@ -45,5 +45,5 @@ REST
     }
   }
 }
-
+```
 Most online converters converted the key field as "@key" but what loopback needs is "-key"
