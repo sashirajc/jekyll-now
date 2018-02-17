@@ -5,7 +5,7 @@ permalink: /aboutme/
 ---
 
 
-<p class="full-width no-margin"><img src="/images/display.jpg" alt="LQ" style="width:15rem;height:15rem;" align="right"/></p>
+<p class="full-width no-margin"><img src="/images/profile.jpg" alt="LQ" style="width:15rem;height:15rem;" align="right"/></p>
 
 <blockquote class="full-width"><p>Backend Developer, Aikidoka, Tinkerer, Cloud Infrastructure Administrator</p></blockquote>
 
@@ -62,4 +62,5 @@ Tech -
 * I am a Aikidoka, a practioner of Aikido outside Japan.
 * I did a Udacity Nanodegree in Data Analytics. Data never lies! ;)
 * I am a fan of history and love travelling.
+* I have a keen interest in macro photography.
 
