@@ -8,6 +8,10 @@ tags: AWS
 
 IAM allows to manage users and their level of access to the AWS console.
 
+IAM is universal. It does not apply to specific regions.
+
+Root account is the account used to setup the AWS account. It has complete Admin access.
+
 ### IAM gives:
 1. Centralised control of AWS account
 2. Shared access to AWS account
@@ -26,9 +30,16 @@ IAM allows to manage users and their level of access to the AWS console.
 4. Policy - Group of rules that define one of more permissions. Policies can be applied to users/groups or roles.
 
 ### Notes
+
+New users are created with no permissions. All permissions must be explicitly added to each user/user group.
+
 Two types of access - 
 1. Programmatic access: Grants access to AWS resources via CLI. Credentials needed are Access Key ID and Secret access key
 2. Console access: Grants access to the AWS console and dashboard. Credentials needed are username and password.
+
+Programmatic access and console access are not interchangeable.
+
+Credentials are only given once. If lost, they have to be regenerated. There is an option to download and save those in a local secure location.
 
 Policies can be created for each user to give them access to specific resources and permissions on how the resources are used. Policies are JSON documents which can be edited.
 
@@ -39,3 +50,5 @@ Examples -
 1. IAM user in another account
 2. Application code running on an EC2 instance that needs to perform actions on AWS resources like reading/writing from database.
 3. An AWS service that needs to act on resources in your account to provide its feature
+
+Billing alarms can be created to monitor the bill. When the bill exceeds the set threshold AWS would send an email to alert us.
