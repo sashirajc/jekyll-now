@@ -4,7 +4,7 @@ title: AWS Identity Access Management
 tags: AWS
 ---
 
-# Identity Access Management
+# Identity Access Management (IAM)
 
 IAM allows to manage users and their level of access to the AWS console.
 
