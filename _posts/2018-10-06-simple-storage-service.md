@@ -1,10 +1,8 @@
 ---
 layout: post
-title: AWS Simple Storage Service
+title: AWS Simple Storage Service (S3)
 tags: AWS
 ---
-
-# Simple Storage Service (S3)
 
 One of the first AWS services to be made available. Very important topic for all AWS certifications. 
 
@@ -49,6 +47,8 @@ S3 has a tiered storage, depending on how often it is needed.
 
 4. Glacier - Very cheap but used only for archival. Two types - Expedited, Standard and Bulk. Expedited takes few minutes, Standard takes 3-5 hours and bulk takes upto 12 hours to retrieve.
 
+5. S3 Reduced Redundancy Storage - Less redundancy than standard
+
 ## Comparison of different S3 storage classes
 
 ![S3 storage classes](../images/S3-types.png)
@@ -71,3 +71,56 @@ Storage is charged per GB
 
 Number of requests made to access the storage is also charged
 
+## S3 Versioning
+
+Once versioning is enabled, it cannot be disabled. It can only be suspended. Very big files might increase storage costs if versioning is turned on, since each version of the file will be stored.
+
+MFA Delete can be enabled to add another layer of security to stop people from accidentally deleting buckets from S3.
+
+When an object is deleted, a delete marker is added and the file is hidden from view. To undelete the file, the delete marker can be deleted which will bring back the file.
+
+## Cross Region Replication
+
+This is used to replicate contents of one bucket to another bucket in a different region.
+
+Versioning must be enabled on both buckets to use Cross Region Replication.
+
+CRR only applies to new objects added to the bucket and will not affect existing items inside the bucket.
+
+A file deleted in one bucket will also be deleted in the other bucket.
+
+But if a delete marker is deleted on one bucket, the delete marker is not replicated. The delete marker will have to be independently deleted on both buckets.
+
+Similarly reverts will not be replicated.
+
+Regions must also be unique. CRR cannot be enabled within the same region.
+
+## Lifecycle Management
+
+This is used when certain operations need to be performed on the objects inside S3 depending on when the object is created etc.
+
+It can be used in conjunction with versioning.
+
+It can be applied to current versions and previous versions.
+
+For example - To move an object from Standard to IA, 30 days after creation. And to archive it to glacier 30 days after IA.
+
+## Security and Encryption
+
+All new buckets are private by default
+
+Setup Access control using bucket policies at bucket level or with Access Control lists on the object level.
+
+S3 buckets can be configured to create access logs which log all requests made to S3 bucket.
+
+* Encryption in transit is through SSL/TLS
+
+* Encryption at Rest
+1. Client Side Encryption
+2. Server Side Encryption with Amazon S3 Managed Keys
+3. Server Side Encryption with KMS (Key Management Service)
+4. Server Side Encryption with Customer Provided Keys
+
+Managed keys are further encrypted by AWS and the keys are regularly rotated by AWS
+
+* Client Side Encryption must be created by the client
