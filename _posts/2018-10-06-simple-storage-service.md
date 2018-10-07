@@ -124,3 +124,17 @@ S3 buckets can be configured to create access logs which log all requests made t
 Managed keys are further encrypted by AWS and the keys are regularly rotated by AWS
 
 * Client Side Encryption must be created by the client
+
+## Transfer Acceleration
+
+Transfer Acceleration utilises the CloudFront Edge Network to accelerate uploads to S3. Instead of uploading directly to S3 bucket, it uses a distinct URL to upload directly to an edge location which will then transfer to S3 across AWS backbone network.
+
+Transfer Acceleration is enabled from S3 bucket properties after the bucket is created.
+
+This is not included in any of the exams yet.
+
+## Static Website hosting on S3
+
+Static websites can be hosted on S3. 
+
+The URL is [bucketname].s3-website-[region].amazonaws.com
