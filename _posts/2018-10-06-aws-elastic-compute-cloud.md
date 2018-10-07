@@ -165,3 +165,18 @@ Network access control lists are stateless. They can be used to block off indivi
 
 ## Load Balancing
 
+A virtual machine which can balance the load/traffic between multiple instances.
+
+Types of load balancers
+
+1. Application Load Balancer - Best suited for load balancing of HTTP and HTTPS traffic. They operate at Layer 7 and are application-aware. They are intelligent and can create advanced request routing, sending specified requests to specific web servers.
+
+2. Network load balancer - Best suited for load balancing TCP traffic where extreme performance is required. Operating at connection level, network load balancers are capable of handling millions of requests per second while maintaining ultra low latencies. Used for extreme performance.
+
+3. Classic load balancer - Legacy elastic load balancers. Can load balance HTTP/HTTPS applications and use layer 7 specific features such as X-Forwarded and sticky sessions. Can also use strict Layer 4 load balancing for applications that rely purely on TCP protocol.
+
+Load balancer errors - 
+
+Classic load balancer (ELB)  - If application stops responding, ELB responds with 504 error. Gateway has timed out. Application has stopped responding within the idle timeout period. This means web application is having issues at either web server layer or the database layer. Identify where the application is failing, and scale up or out where possible.
+
+Forwarded-For header : Load balancer takes a IP address and adds the public IP address to the X-Forwarded-For header.
