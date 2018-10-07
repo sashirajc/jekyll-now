@@ -12,7 +12,7 @@ Data is spread across multiple devices and facilities.
 
 Files can be 0 bytes to 5 Terabytes in size.
 
-Storage is unlimited and stored in buckets. Buckets are nothing but folder inside the cloud. Buckets have universal namespace and must be globally unique.
+Storage is unlimited and stored in buckets. Buckets are nothing but folder inside the cloud. Buckets have universal namespace and must be globally unique. Bucket names are always lowercase.
 
 S3 URLs have a format of - [region-name].amazonaws.com/[bucket-name]
 
@@ -33,6 +33,8 @@ S3 is Object based. Objects consist of
 6. Torrent - Torrenting
 7. Bucket policies - Bucket level policies
 
+## S3 Storage Tiers
+
 S3 is built for 99.99% availability for S3 platform.
 Amazon Guarantee 99.9% availability
 Amazon Guarantees 99.99999999% durability - This means that the file will never be lost
@@ -47,7 +49,7 @@ S3 has a tiered storage, depending on how often it is needed.
 
 4. Glacier - Very cheap but used only for archival. Two types - Expedited, Standard and Bulk. Expedited takes few minutes, Standard takes 3-5 hours and bulk takes upto 12 hours to retrieve.
 
-5. S3 Reduced Redundancy Storage - Less redundancy than standard
+5. S3 Reduced Redundancy Storage - Less redundancy than standard (Older term for IA One Zone)
 
 ## Comparison of different S3 storage classes
 
@@ -105,6 +107,8 @@ It can be applied to current versions and previous versions.
 
 For example - To move an object from Standard to IA, 30 days after creation. And to archive it to glacier 30 days after IA.
 
+Lifecycle management rules can also be used to permanently delete an object.
+
 ## Security and Encryption
 
 All new buckets are private by default
@@ -123,6 +127,8 @@ S3 buckets can be configured to create access logs which log all requests made t
 
 Managed keys are further encrypted by AWS and the keys are regularly rotated by AWS
 
+SSE KMS allows to create access logs of who used the keys to access what objects.
+
 * Client Side Encryption must be created by the client
 
 ## Transfer Acceleration
@@ -138,3 +144,5 @@ This is not included in any of the exams yet.
 Static websites can be hosted on S3. 
 
 The URL is [bucketname].s3-website-[region].amazonaws.com
+
+[S3 FAQ](https://aws.amazon.com/s3/faqs/)
