@@ -180,3 +180,5 @@ Load balancer errors -
 Classic load balancer (ELB)  - If application stops responding, ELB responds with 504 error. Gateway has timed out. Application has stopped responding within the idle timeout period. This means web application is having issues at either web server layer or the database layer. Identify where the application is failing, and scale up or out where possible.
 
 Forwarded-For header : Load balancer takes a IP address and adds the public IP address to the X-Forwarded-For header.
+
+AWS managed the public IP address of the load balancer and only exposes the public DNS name. The public IP address may change and
