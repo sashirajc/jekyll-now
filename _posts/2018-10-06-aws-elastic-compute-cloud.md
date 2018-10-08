@@ -181,4 +181,81 @@ Classic load balancer (ELB)  - If application stops responding, ELB responds wit
 
 Forwarded-For header : Load balancer takes a IP address and adds the public IP address to the X-Forwarded-For header.
 
-AWS managed the public IP address of the load balancer and only exposes the public DNS name. The public IP address may change and
+AWS managed the public IP address of the load balancer and only exposes the public DNS name. The public IP address may change.
+
+## Cloudwatch
+
+Monitoring and alerting service
+Standard monitoring monitors every 5 mins. Detailed monitoring will drop it down to every 1 minute.
+
+Dashboards - Create dashboards to monitor events happening with AWS resources.
+Alarms - Alarms will notify you when certain thresholds are hit. This can be configured depending on which thresholds we want to monitor.
+Events - Events help to respond to state changes in AWS resources.
+Metrics - 
+Logs - Aggregate, monitor and store logs by installing agents on EC2
+
+Cloudwatch is for logging and performance monitoring
+Cloudtrail is for monitoring user actions and auditing operations on entire AWS environment.
+
+## AWS IAM Roles
+AWS CLI needs programmatic access to provision resources and perform other operations from the CLI. But AWS CLI credentials are by default stored in the root folder in plaintext and this could be a huge security risk. To overcome this security risk, IAM roles can be used to manage user access programmatically.
+
+IAM roles are global. IAM roles can be added/removed on running instances.
+
+When accessing S3 buckets from AWS CLI, it is good practice to always mention the region flag. 
+
+## Bash Script
+
+A script that can be used to do some operations on EC2 when the instance is provisioned or turned on. Like boot scripts.
+
+To check metadata of EC2 instance  - http://169.254.169.254/latest/meta-data
+
+[Instance Metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+
+## Launch Configuration and AutoScaling
+
+Before creating an autoscaling group, a launch configuration must be created. Autoscaling groups can be triggered by cloudwatch alarms. Extra instances can be added when the cpu utilization or another metric goes beyond a certain level.
+
+Placement Groups - 
+1. Clustered placement group
+2. Spread placement group
+
+Cluster placement group is a grouping of instances within a single availability zone. Placement groups are recommended for applications that need low network latency, high network throughput or both. By default placement groups refers to clustered. Only some instance groups can be inside a clustered placement group.
+
+Spread placement group is a group of instances that are each placed on distinct underlying hardware. Spread placement groups are recommended for applications that have a small number of critical instances that should be kept separate from each other.They can be on separate availability zones.
+
+AWS recommends homogenous instances within placement groups. Placement groups cant be merged. Existing instances cant be moved into a placement group. An AMI can be created from an existing instance and then launched as a new instance into the placement group.
+
+## Elastic File System
+
+File storage service for EC2 instances. Easy to use and provides a simple interface that allows to create and configure file systems quickly and easily. With EFS, storage capacity is elastic, growing and shrinking automaticaly as files are added or removed.
+
+Supports NFSv4 protocol.
+Only paid for storage that is used.
+Can scale upto petabytes.
+Can support thousands of concurrent NFS connections. 
+Data is stored across multiple availability zone.
+Read after write consistency.
+Block based storage, not object based.
+
+Unlike EBS volumes, EFS can be attached to more than one EC2 instance at once. It is a centralised repository for all files.
+
+Read more from FAQs for this.
+
+## Lambda
+
+AWS Lambda is a compute service where code can be uploaded to create a lambda function. AWS Lambda takes care of provisioning and managing the servers needed to run the code.
+
+It can be used as -
+1. As an event driven compute service where AWS Lambda runs code in response to events. These events could be changes to date in an S3 bucket or DynamoDB table etc.
+2. As a compute service to run code in response to HTTP requests using API Gateway or API calls made by AWS SDKs.
+
+Lambda function cannot run for more than 5 minutes.
+
+Advantages - no servers
+continous scaling, extremely cheap
+
+1 lambda function can trigger other lambda functions.
+Debugging can be a nightmare, X-ray will be needed to debug problems.
+Lambda can do things globally.
+
