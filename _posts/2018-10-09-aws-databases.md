@@ -111,3 +111,20 @@ Security - Encrypted at transit using SSL, Encrypted at REst using AES-256 encry
 
 Redshift can only be available on 1 az. Can restore snapshots to new az in the event of outage.
 
+## Aurora
+
+Developed by AWS. Will only run on AWS infrastructure.MySQL compliant, relational database engine that combines speed and availability of high end commercial databases with simplicity and cost effectiveness of open source databases. Aurora provides upto 5 times better performance than MySQL.
+
+Aurorascaling - Starts with 10GB and scales in increments of 10GB upto 64 TB of storage.
+Compute resources can scale upto 32 vCPUs and 244GB of memory.
+
+Maintains 2 copies of datadata in each availability zone with minimum of 3 availability zones.
+
+Designed to transparently handle the loss of upto 2 copies of data without affecting database write availability and upto 3 copies without affecting read availability.
+
+Aurora is self-healing. Data blocks and disks are continously scanned and errors are repaired automatically.
+
+2 types of replicas are available - 
+1. Aurora replicas (currently 15)
+
+2. MySQL Read replicas (currently 5)
