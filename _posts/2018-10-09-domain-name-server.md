@@ -65,3 +65,12 @@ Latency based routing allows to route traffic based on lowest network latency fo
 
 Creates an active/passive setup. With active or primary webserver in one region and the secondary site in another region. Route53 monitors the health of the primary site with a healthcheck. If the healthcheck fails on the primary, the secondary site would take over.
 
+## Geolocation
+
+Geolocation routing allows traffic to be sent based on the geographic location of users. 
+
+## Multivalue routing
+
+Traffic can be sent randomly to multiple servers and it can be associated to a healtcheck.
+
+Only 50 domain names can be managed by Route53 by default. But this is a soft limit and can be raised by contact amazon support.
