@@ -90,35 +90,151 @@ The well architected framework is a set of questions that can be used to evaluat
 
 5. Automate security best practices - Use Center for Internet Security as a guide on how to harden operating systems and create an AMI. Use this AMI with security settings for all EC2 instances.
 
+6. Shared security model - Customer is responsible for IAM access policies, firewall config, instance hardening, server side and client side encryption etc.
+
+AWS will be responsible for data center security, applying software patches to cloud resources and maintaining availability and reliability of the resources as per the SLAs.
 
 #### Definition
 
+Security in the cloud consists of 4 areas:
+
+1. Data Protection: Basic data classification should be in place. Data should be organised and classified into segments such as publicly available, available only to members of organisation, available only to certain members of the organisation, available only to the board etc.
+
+Least privilege access system must be implemented so that people are only able to access what they need. All data must be encrypted whenever possible, in transit or at rest.
+
+2. Privilege Management
+
+Privilege management ensures that only authorized and authenticated users are able to access your resources and only in a manner that is intended. It can include using Access Control Lists, Role based access controls and password management.
+
+3. Infrastructure Protection
+
+Outside of Cloud, how would you protect your data center? RFID controls, security cameras, lockable cabinets etc. Within AWS they handle this, so really infrastructure protection exists at a VPC level. How are you managing ACLs? How is the routing done? Are the subnets public or private?
+
+4. Detective Controls
+
+Detective controls can be used to detect or identify a security breach. AWS services to achieve this include - CloudTrail, CloudWatch, Config, S3, Glacier
 
 #### Best Practices
 
+1. Data Protection
+
+..* AWS customers maintain full control over their data.
+
+..* AWS makes it easier to encrypt data and manage keys, including key rotation which can be easily automated natively by AWS or maintained by the customer.
+
+..* Detailed logging is available that contains important content such as file access and changes.
+
+..* AWS has designed storage systems for exceptional resilience.
+
+..* Versioning, which can be a part of a larger data lifecycle management process, can protect against accidental overwrites, deletes and similar harm.
+
+..* AWS never initiates the movement of data between regions. Content placed in a region will remain in that region unless customer explicitly enables a features or leverages a service that provides that functionality.
+
+#### Questions to ask
+
+1. Data Protection
+
+..* How are you encrypting and protecting data at rest?
+
+..* How are you encrypting and protecting data in transit?
+
+2. Privilege Management
+
+..* How are you protecting access to and use of the AWS root account credentials?
+
+..* How are you defining roles and responsibilities of system users to control human access to the AWS management console and APIs?
+
+..* How are you limiting automated access to AWS resources?
+
+..* How are you managing keys and credentials?
+
+3. Infrastructure protection
+
+..* How are you enforcing network and host-level boundary protection?
+
+..* How are you securing access to subnets?
+
+..* How are you securing access to accounts on EC2 instance? Is it just the ec2-user account or are there multiple accounts?
+
+..* Are you using bastian hosts or NAT Gateway?
+
+..* How are you enforcing AWS level protection? Are there multiple users with console level access? Are there multi-factor authentication enabled for all the users? Do you have strong password protection policies?
+
+..* How are you protecting the integrity of the operating system? Are windows instances getting anti-virus updates? Are the operating systems hardened?
+
+4. Detective Control
+
+..* How are you capturing and analyzing AWS logs?
+
+..* Do you have cloudtrail turned on, in each region?
+
+..* Are you using a log management plans?
 
 #### Key AWS Services
 
+1. Data Protection - ELB, EBS, S3, RDS
 
-#### Resources
+2. Privilege Management - IAM, MFA
+
+3. Infrastructure protection - VPC
+
+4. Detective Control - CloudTrail, CloudWatch, Config
 
 ### Pillar 2: Reliability
 
+Reliability covers the ability of a system to recover from service or infrastructure outages/ disruptions as well as the ability to dynamically acquire computing resources to meet demand.
+
 #### Design Principles
 
+1. Test recovery procedures - Introduce failure into the environment and test how the the system recovers
+
+2. Automatically recover from failure - Use KPIs to notify when performance thresholds are breached. This allows for automatic reovery from failures.
+
+3. Scale horizontally to increase aggregate system availability - Scale out rather than scale up, this can ensure one system does not become a block point.
+
+4. Stop guessing capacity - Use autoscaling to meet demand as needed instead of underprovisioning or over provisioning.
 
 #### Definition
 
+1. Foundations - AWS takes care of most of the foundational limits. However there are service limits on AWS to ensure that customers do not overprovision resources. Most services have a service limit which can be extended by contacting customer support.
+
+2. Change management - You need to be aware of how change affects a system so that you can plan proactively around it. Monitoring allows you to detect any changes to the environment and react. Cloudwatch can be used to monitor the environment and services such as autoscaling to automate change in response to changes on production environment.
+
+3. Failure Management - With cloud, you should always architect your systems with the assumptions that failure will occue. You should become aware of these failures, how they occured, how to respond to them and then plan on how to prevent these from happening again.
 
 #### Best Practices
 
+1. Foundations - 
+
+..* How are you managing AWS service limits for your account?
+
+..* Are you aware of the service limits on AWS?
+
+..* How are you planning your network topology on AWS?
+
+..* Do you have an escalation path to address issues?
+
+2. Change management - 
+
+..* How does your system adapt to changes in demand?
+
+..* How are you monitoring AWS resources?
+
+..* How are you executing change management?
+
+3. Failure Management - 
+
+..* How are you backing up your data?
+
+..* How does your system withstand component failures?
+
+..* How are you planning for recovery?
 
 #### Key AWS Services
 
-
-#### Resources
-
-
+1. Foundations - IAM, VPC
+2. Change Management - CloudTrail
+3. Failure Management - CloudFormation
 
 ### Pillar 3: Performance Efficiency
 
