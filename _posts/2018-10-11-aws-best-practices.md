@@ -238,32 +238,108 @@ Reliability covers the ability of a system to recover from service or infrastruc
 
 ### Pillar 3: Performance Efficiency
 
+Focuses on how to use computing resources efficiently to meet requirements and how to maintain that efficiency as demand changes and technology evolves.
 
 #### Design Principles
 
+1. Democratize advanced techologies - Use technologies that can be implemented by anyone without the need for specialized skillsets. Like use AWS machine learning services instead of getting a machine learning engineer who might be difficult to find.
+
+2. Go global in minutes - Use cloudformation templates to deploy the entire infrastructure in a new region within minutes.
+
+3. Use serverless architecture
+
+4. Experiment more often
 
 #### Definition
 
+1. Compute - When architecting your system it is important to choose the right kind of server.
 
-#### Best Practices
+Questions?
 
+..* How do you select the appropriate instance type for your system?
+
+..* How do you ensure that you continue to have the most appropriate instance type as new instance types and features are introduced?
+
+..* How do you monitor your instances post launch to ensure they are performing as expected?
+
+..* How do you ensure that the quality of your instances match demand?
+
+2. Storage - Optimal storage solutions for environment depends on number of factors - 
+
+..* Access methods - Block,file or object
+
+..* Patterns of Access - Random or sequential
+
+..* Throughput required
+
+..* Frequency of Access - Online, Offline or Archival
+
+..* Frequency of Update - Worm, Dynamic
+
+..* Availability Constraints
+
+..* Durability Constraints
+
+Questions?
+
+..* Gow do you select the appropriate storage solution for your system?
+
+..* How do you ensure that you continue to have the most appropriate storage solution as new storage solutions and features are launched?
+
+..* How do you monitor your storage solution to ensure it is performing as expected?
+
+..* How do you ensure that the capacity and throughput of your storage solutions matches demand?
+
+3. Database - Optimal database solution depends on a number of factors - Is database consistency needed? Is high availability needed? NoSQL needed?
+
+Questions?
+
+..* How do you select the appropriate database solution for your system?
+
+..* How do you ensure that you continue to have the most appropriate database solution and features as new database solution and features are launched?
+
+..* How do you monitor your databases to ensure performance is as expected?
+
+..* How do you ensure the capacity and throughput of your database matches demand?
+
+4. Space-Time Continuum - When you are building your infrastructure ther is a trade-off wher space is used to reduce processing time or time is used to reduce space. You can cache data to reduce time.
+
+Questions?
+
+..* How do you select the appropriate proximity and caching solutions for your system?
+
+..* How do you ensure that you continue to have the most appropriate proximity and caching solutions as new solutions are launched?
+
+..* How do you monitor your proximity and caching solutions to ensure performance is as expected?
+
+..* How do you ensure that the proximity and caching solutions you have matches demand?
 
 #### Key AWS Services
 
+1. Compute - Autoscaling
 
-#### Resources
+2. Storage - EBS, S3, Glacier
 
+3. Database - RDS, DynamoDB, Redshift
+
+4. Space-time tradeoff - Cloudfront, Elasticache, Direct Connect, RDS Read Replica
 
 ### Pillar 4: Cost Optimization
 
+Allows to pay the lowest price possible while still achieving your business objectives?
 
 #### Design Principles
 
+1. Transparently attribute expenditure - Makes it easier to see who is consuming what, and check how to optimize
 
-#### Definition
+2. Use managed services to reduce cost of ownership - Since these run at a cloud level, they are cheaper to use. Also easier to manage since we dont have to manage the underlying hardware.
 
+3. Trade capital expense for operating expense - 
 
-#### Best Practices
+4. Benefit from economies of scale - 
+
+5. Stop spending money on  data center operations
+
 
 
 #### Key AWS Services
