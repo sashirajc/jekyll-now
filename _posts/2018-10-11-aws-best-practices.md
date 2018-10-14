@@ -340,22 +340,126 @@ Allows to pay the lowest price possible while still achieving your business obje
 
 5. Stop spending money on  data center operations
 
+#### Definitions
 
+1. Matched supply and demand - Optimally align supply and demand. Dont over provision or under provision. Use autoscaling and serverless services to only provision resources when needed. Services such as CloudWatch can also help to keep track as to what demand is.
+
+Questions?
+
+..* How do you make sure your capacity matches but does not substantially exceed what you need?
+
+..* How are you optimizing your usage of AWS services?
+
+2. Cost effective resources - Using the correct instance type can be key to cost savings. A well architected system will use the most cost effective resources to meet the end goal.
+
+Questions?
+
+..* Have you selected the appropriate resource types to meet your cost targets?
+
+..* Have you selected the appropriate pricing model to meet your cost targets?
+
+..* Are there managed services that you can use to improve your ROI?
+
+3. Expenditure awareness - Be aware of what is spent on the cloud. It is easier to spend and provision resources and this could lead to a lack of awareness on the real expenses. Use cost allocation tags to track spending. Billing alerts as well as consolidated billing can also be used.
+
+Questions?
+
+..* What access controls and procedures do you have in place to govern AWS costs?
+
+..* How are you monitoring usage and spending?
+
+..* How do you decommission resources that are no longer needed or stop resources that are temporarily not needed?
+
+..* How do you consider data transfer charges while designing the architecture?
+
+4. Optimizing over time - AWS moves fast! There are new services launched all the time. A service which existed when we first provisioned the resources might not be the best service to use now. So always keep track of changes made to AWS and use the best service currently available for the use case.
+
+Questions?
+
+..* How do you manage and consider the adoption of new services
 
 #### Key AWS Services
 
+1. Matched supply and demand - Autoscaling
 
-#### Resources
+2. Cost effective resources - EC2, AWS Trusted Advisor
 
+3. Expenditure awareness - Cloudwatch, SNS
+
+4. Optimising over time - AWS Trusted Advisor
 
 ### Pillar 5: Operational Excellence
 
+Operational Excellence includes operational practices and procedures used to manage production workloads. This includes how planned changes are executed, as well as responses to unexpected operational events.
+
+Change execution and responses should be automated. All processes and procedures of operational excellence should be documented, tested and regularly reviewed.
 
 #### Design Principles
 
+1. Perform operations with code
+
+2. Align operations process to business objectives - Collect metrics which show that business objectives are met
+
+3. Make regular, small and incremental changes
+
+4. Test for responses to unexpected events - Test workloads like netflix
+
+5. Learn from operational events and failures.
+
+6. Keep operations procedures current.
 
 #### Definition
 
+1. Preparation - Effective preparation is required to drive operational excellence.
+
+Operations checklists will ensure that workloads are ready for production operation and prevent unintentional production promotion without effective preparation. Workloads should have 
+..* Runbooks - operations guidance that operations teams can refer to so they can perform normal daily tasks.
+
+..* Playbooks - Guidance for responding to unexpected operational events. Playbooks should include response plans as well as escalation paths and stakeholder notifications.
+
+Keep all your documentation updated - Application designs, environment configurations, resource configurations, response plans, mitigration plans.
+
+CloudFormation can be used to ensure that environments contain required resources when deployed in production and that the configuration of the environment is based on tested best practices, which reduces the opportunity for human error.
+
+Autoscaling must be implemented to allow workloads to automatically respond when business related event affect operational needs.
+
+Use AWS Config rules feature to create mechanisms to automatically track and respond to changes in AWS workloads.
+
+Use features like tagging to make sure all resources in a workload can be easily identified when needed during operations and responses.
+
+Questions?
+
+..* What best practices for cloud operations are you using?
+
+..* How are you doing configuration management for your workload?
+
+2. Operation - Operations should be standardized and manageable on a routing basis. Changes should not be large and infrequent, they should not require scheduled downtime and they should not require manual execution. A wide range of logs and metrics that are based on key operational indicators for a workload should be collected and reviewed to ensure continous operations.
+
+In AWS, continuous integration/ continuous deployment pipeline can be setup. Release management processes whether manual or automated should be tested and be based on small incremental changes and tracked versions. You should be able to revert changes that introduce operational issues without causing operational impact.
+
+Routing operations should be automated. Manual processes for deployments, release management etc should be avoided.
+
+Rollbacks are more difficult in large changes and failing to have a rollback plan or the ability to mitigate failure impacts will prevent continuity of operations. Align monitoring to business needs, so that the responses are effective at maintaining business continuity.
+
+
+
+Questions?
+
+..* How are you evolving your workload while minimizing the impact of change?
+
+..* How do you monitor your workload to ensure it is operating as expected?
+
+3. Response
+
+Responses to unexpected operational events should be automated. This is not just for alerting, but also for mitigation, remediation, rollback and recovery. Alerts should be timely and should invoke escalations when responses are not adequate to mitigate the impact of operational events. Quality assurance mechanisms should be in place to automatically rollback failed deployments. Responses should follow a pre-defined playbook that includes stakeholders, the escalation process and procedures. Escalation paths should be defined and include both functional and hierarchical escalation capabilities. Hierarchical escalation should be automated and escalated priority should result in stakeholder notifications.
+
+In AWS, scheduled mechamisms ensure both appropriate alerting and notification in response to unplanned operational events as well as automated responses.
+
+Questions?
+
+..* How do you respond to unplanned operational events?
+
+..* How is escalation managed when responding to unplanned operational events?
 
 #### Best Practices
 
