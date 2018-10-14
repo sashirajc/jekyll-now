@@ -1,0 +1,59 @@
+Creational Design patterns
+Concerns with how objects are created
+Interested in newing up an object.
+
+
+Types- 
+Constructor pattern
+Module pattern
+Factory pattern
+Singleton pattern
+
+
+Structural design patterns
+Mainly concerned about how objects are structured and 
+simplify relationships between the objects
+They either extend or simplify functionality and
+ make things easier to do. All about how one object relates to other objects
+Adding functionality and self contained
+
+Decorator pattern
+Used to add new functionality to existing object 
+without being obtrusive
+
+Decorator pattern wraps around an object.
+Protects existing objects
+Allows extending functionality
+More complete inheritance
+
+
+Facade pattern
+Used to provide a simplified interface to a complicated interface
+Does not provide additional functionality like the decorator pattern but simplifies
+existing functionality by providing a interface.
+
+Flyweight pattern
+
+Conserves memory when by sharing portions of an object across different instances of the object
+
+Used when you have a lot of objects or large datasets.
+Creates a flyweight which can store common data which might be shared by 
+more than one instance of an object. The flyweight stores the common data
+leaving the object with just the unique data to be stored.
+
+Advantage - smaller memory footprint
+
+
+Behavioral design patterns
+
+Concerned with assignment of responsibilities between objects and how objects communicate.
+Assigns clear hierarchy
+can encapsulate requests
+
+Observer pattern
+Allows a group of objects to watch another object and be notified of changes.
+Allows for loosely coupled systems
+One object becomes the focal point.
+Group of objects watch the focal point for changes
+
+
